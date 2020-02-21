@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <input type="text" name="name" id="uname" placeholder="username">
+        <button onclick="pushFirebase()">Push Data</button>
+        <button onclick="setData()">Set Data</button>
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.9.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.9.0/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.9.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCkaz_rGpNQzRX2QyDZh6-R3mbrhjfKZfQ",
+    authDomain: "autopedo1.firebaseapp.com",
+    databaseURL: "https://autopedo1.firebaseio.com",
+    projectId: "autopedo1",
+    storageBucket: "autopedo1.appspot.com",
+    messagingSenderId: "490299653946",
+    appId: "1:490299653946:web:e7234acb7d2e57c0ab1a03",
+    measurementId: "G-PYZ6LFCRN3"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  function pushFirebase(){
+      const fb=firebase.database().ref()
+      string=document.getElementById('uname').value
+      data={string}
+      fb.child('/').push(data)
+  }
+  function setData(){
+      const fb=firebase.database().ref()
+      string=document.getElementById('uname').value
+      data={string}
+      fb.child('LED_STATUS/').set("yo")
+  }
+</script>
+    </body>
+</html>
